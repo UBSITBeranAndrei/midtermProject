@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { ProductsComponent } from './products/products';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { RouteReuseStrategy } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ProductsComponent],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

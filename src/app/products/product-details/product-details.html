@@ -1,0 +1,81 @@
+@if (showModal) {
+    <div class="modal-overlay" (click)="closeModal()">
+      <div class="modal-content" (click)="stopPropagation($event)">
+  
+        <div class="modal-header">
+          <h3 class="modal-title">{{ isEditing ? 'Edit Product' : 'Product Details' }}</h3>
+          <button class="btn-close" (click)="closeModal()">✕</button>
+        </div>
+  
+        @if (selectedProduct) {
+  
+          <!-- VIEW MODE -->
+          @if (!isEditing) {
+            <div class="modal-body">
+              <div class="detail-row"><span class="detail-label">Product ID:</span><span class="detail-value">{{ selectedProduct.id }}</span></div>
+              <div class="detail-row"><span class="detail-label">Name:</span><span class="detail-value">{{ selectedProduct.name }}</span></div>
+              <div class="detail-row"><span class="detail-label">Brand:</span><span class="detail-value">{{ selectedProduct.brand }}</span></div>
+              <div class="detail-row"><span class="detail-label">Category:</span><span class="detail-value">{{ selectedProduct.category }}</span></div>
+              <div class="detail-row"><span class="detail-label">Price:</span><span class="detail-value price-value">₱{{ selectedProduct.price.toFixed(2) }}</span></div>
+              <div class="detail-row"><span class="detail-label">Stock:</span><span class="detail-value">{{ selectedProduct.stock }} units</span></div>
+              <div class="detail-row"><span class="detail-label">Status:</span><span class="detail-value">{{ selectedProduct.status }}</span></div>
+              <div class="detail-row"><span class="detail-label">Rating:</span><span class="detail-value">⭐ {{ selectedProduct.rating }} / 5.0</span></div>
+              <div class="detail-row detail-full"><span class="detail-label">Description:</span><span class="detail-value">{{ selectedProduct.description }}</span></div>
+            </div>
+            @if (updateMessage) {
+              <p class="modal-update-message">{{ updateMessage }}</p>
+            }
+          }
+  
+          <!-- EDIT MODE -->
+          @if (isEditing && editProduct) {
+            <div class="modal-form">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" [(ngModel)]="editProduct.name" class="form-input" />
+              </div>
+              <div class="form-group">
+                <label>Brand</label>
+                <input type="text" [(ngModel)]="editProduct.brand" class="form-input" />
+              </div>
+              <div class="form-group">
+                <label>Category</label>
+                <input type="text" [(ngModel)]="editProduct.category" class="form-input" />
+              </div>
+              <div class="form-group">
+                <label>Price</label>
+                <input type="number" [(ngModel)]="editProduct.price" class="form-input" />
+              </div>
+              <div class="form-group">
+                <label>Stock</label>
+                <input type="number" [(ngModel)]="editProduct.stock" class="form-input" />
+              </div>
+              <div class="form-group">
+                <label>Status</label>
+                <input type="text" [(ngModel)]="editProduct.status" class="form-input" />
+              </div>
+              <div class="form-group">
+                <label>Rating</label>
+                <input type="number" [(ngModel)]="editProduct.rating" class="form-input" />
+              </div>
+              <div class="form-group form-full">
+                <label>Description</label>
+                <textarea [(ngModel)]="editProduct.description" class="form-input form-textarea"></textarea>
+              </div>
+            </div>
+          }
+        }
+  
+        <div class="modal-footer">
+          @if (!isEditing) {
+            <button class="btn-edit" (click)="startEditing()">✏️ Edit</button>
+            <button class="btn-close-footer" (click)="closeModal()">Close</button>
+          } @else {
+            <button class="btn-cancel" (click)="cancelEditing()">Cancel</button>
+            <button class="btn-save" (click)="saveChanges()">💾 Save Changes</button>
+          }
+        </div>
+  
+      </div>
+    </div>
+  }
