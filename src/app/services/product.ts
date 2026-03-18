@@ -1,11 +1,14 @@
 import { Injectable, signal } from '@angular/core';
 import { Product } from '../models/product.interface';
 
+// ProductService: Centralized service for managing all product data
+// Injected as a singleton across the entire application (providedIn: 'root')
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
+  // Signal-based reactive state - automatically notifies consumers when data changes
   private products = signal<Product[]>([
     { id: 1, name: 'Mechanical Gaming Keyboard', category: 'Electronics', price: 2599.00, stock: 40, status: 'In Stock', description: 'RGB mechanical keyboard na pang-competitive gaming.', brand: 'KeyMaster', rating: 4.5, imageUrl: '' },
     { id: 2, name: 'Mobile Legends Bang Bang Diamonds x3000', category: 'Game Credits', price: 1500.00, stock: 999, status: 'In Stock', description: 'Top-up ng 3000 diamonds para sa iyong paboritong MLBB account.', brand: 'Moonton', rating: 4.8, imageUrl: '' },
@@ -19,30 +22,38 @@ export class ProductService {
     { id: 10, name: 'Tsinelas (Pang-gaming Edition)', category: 'Apparel', price: 85.00, stock: 34, status: 'In Stock', description: 'Komportableng tsinelas para sa matagal na gaming session sa bahay.', brand: 'Spartan', rating: 4.3, imageUrl: '' }
   ]);
 
+  // Returns all products from the signal
   getAll(): Product[] {
     return this.products();
   }
 
+  // Finds and returns a single product by its ID
+  // Returns undefined if no product is found
   getById(id: number): Product | undefined {
     return this.products().find(p => p.id === id);
   }
 
+  // Filters products by name using case-insensitive search
   search(query: string): Product[] {
     return this.products().filter(p =>
       p.name.toLowerCase().includes(query.toLowerCase())
     );
   }
 
+  // Adds a new product to the signal array
   add(product: Product): void {
     this.products.update(list => [...list, product]);
   }
 
+  // Updates an existing product by matching ID
+  // Uses signal.update() to maintain reactivity
   edit(updated: Product): void {
     this.products.update(list =>
       list.map(p => p.id === updated.id ? updated : p)
     );
   }
 
+  // Removes a product from the array by ID
   delete(id: number): void {
     this.products.update(list => list.filter(p => p.id !== id));
   }
