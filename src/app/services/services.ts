@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Product } from '../models/product.interface';
@@ -11,36 +11,55 @@ import { ProductService } from './product';
   templateUrl: './services.html',
   styleUrl: './services.css',
 })
-export class Services {
+export class Services implements OnInit {
 
-  searchId: number | null = null;
-  selectedProduct: Product | null = null;
-  searchResult: Product | null = null;
-  updateMessage: string = '';
+  private svc = inject(ProductService);
 
-  constructor(public productService: ProductService) {}
+  displayedItems = signal<Product[]>([]);
+  selectedProduct = signal<Product | null>(null);
+  searchResult = signal<Product | null>(null);
+  searchId = signal<number | null>(null);
+  searchQuery = signal<string>('');
+  updateMessage = signal<string>('');
 
-  getProducts(): Product[] {
-    return this.productService.getProducts();
+  ngOnInit() {
+    this.displayedItems.set(this.svc.getAll());
   }
 
-  viewProduct(product: Product): void {
-    this.selectedProduct = this.selectedProduct?.id === product.id ? null : { ...product };
+  onSearch(e: Event) {
+    const q = (e.target as HTMLInputElement).value;
+    this.searchQuery.set(q);
+    this.displayedItems.set(q ? this.svc.search(q) : this.svc.getAll());
   }
 
-  searchProduct(): void {
-    if (this.searchId !== null) {
-      const found = this.productService.getProductById(this.searchId);
-      this.searchResult = found ? { ...found } : null;
-      this.updateMessage = found ? '' : 'Product not found.';
+  viewProduct(product: Product) {
+    this.selectedProduct.set(
+      this.selectedProduct()?.id === product.id ? null : { ...product }
+    );
+  }
+
+  searchById() {
+    const id = this.searchId();
+    if (id !== null) {
+      const found = this.svc.getById(id);
+      this.searchResult.set(found ? { ...found } : null);
+      this.updateMessage.set(found ? '' : 'Product not found.');
     }
   }
 
-  saveUpdate(): void {
-    if (this.searchResult) {
-      this.productService.updateProduct(this.searchResult);
-      this.updateMessage = 'Product updated successfully!';
+  saveUpdate() {
+    const result = this.searchResult();
+    if (result) {
+      this.svc.edit(result);
+      this.displayedItems.set(this.svc.getAll());
+      this.updateMessage.set('Product updated successfully!');
     }
+  }
+
+  deleteProduct(id: number) {
+    this.svc.delete(id);
+    this.displayedItems.set(this.svc.getAll());
+    if (this.selectedProduct()?.id === id) this.selectedProduct.set(null);
   }
 
   isAuthenticated(): boolean {

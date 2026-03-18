@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600&family=Fira+Code:wght@400;500&display=swap');
+
+.db-container {
+  min-height: 100vh;
+  background: #0a0a0f;
+  padding: 40px 32px;
+  font-family: 'Exo 2', sans-serif;
+}
+
+.page-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 8px;
+  background: linear-gradient(90deg, #00f5ff, #bf00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.page-subtitle {
+  color: #888;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+
+/* SECTION */
+.db-section {
+  border-radius: 14px;
+  padding: 32px;
+  margin-bottom: 28px;
+  position: relative;
+  border: 1px solid transparent;
+}
+
+.db-section:nth-child(3) {
+  background: linear-gradient(#0d0d1a, #0d0d1a) padding-box,
+              linear-gradient(90deg, #00f5ff, #00aaff) border-box;
+}
+
+.db-section:nth-child(4) {
+  background: linear-gradient(#0d0d1a, #0d0d1a) padding-box,
+              linear-gradient(90deg, #bf00ff, #ff00aa) border-box;
+}
+
+.db-section:nth-child(5) {
+  background: linear-gradient(#0d0d1a, #0d0d1a) padding-box,
+              linear-gradient(90deg, #00ff88, #00f5ff) border-box;
+}
+
+.db-section:nth-child(6) {
+  background: linear-gradient(#0d0d1a, #0d0d1a) padding-box,
+              linear-gradient(90deg, #ffaa00, #ff5500) border-box;
+}
+
+.db-section:nth-child(7) {
+  background: linear-gradient(#0d0d1a, #0d0d1a) padding-box,
+              linear-gradient(90deg, #ff5555, #bf00ff) border-box;
+}
+
+.db-section:nth-child(8) {
+  background: linear-gradient(#0d0d1a, #0d0d1a) padding-box,
+              linear-gradient(90deg, #00f5ff, #00ff88) border-box;
+}
+
+.section-badge {
+  position: absolute;
+  top: -14px;
+  left: 24px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 4px 16px;
+  border-radius: 20px;
+  letter-spacing: 3px;
+  color: #0a0a0f;
+}
+
+.db-section:nth-child(3) .section-badge { background: linear-gradient(90deg, #00f5ff, #00aaff); }
+.db-section:nth-child(4) .section-badge { background: linear-gradient(90deg, #bf00ff, #ff00aa); }
+.db-section:nth-child(5) .section-badge { background: linear-gradient(90deg, #00ff88, #00f5ff); }
+.db-section:nth-child(6) .section-badge { background: linear-gradient(90deg, #ffaa00, #ff5500); }
+.db-section:nth-child(7) .section-badge { background: linear-gradient(90deg, #ff5555, #bf00ff); }
+.db-section:nth-child(8) .section-badge { background: linear-gradient(90deg, #00f5ff, #00ff88); }
+
+.db-section h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.syntax {
+  font-size: 0.95rem;
+  font-family: 'Fira Code', monospace;
+  font-weight: 500;
+  margin-left: 8px;
+  padding: 2px 10px;
+  border-radius: 6px;
+}
+
+.db-section:nth-child(3) .syntax { color: #00f5ff; background: rgba(0, 245, 255, 0.12); }
+.db-section:nth-child(4) .syntax { color: #dd88ff; background: rgba(191, 0, 255, 0.12); }
+.db-section:nth-child(5) .syntax { color: #00ff88; background: rgba(0, 255, 136, 0.12); }
+.db-section:nth-child(6) .syntax { color: #ffcc44; background: rgba(255, 170, 0, 0.12); }
+.db-section:nth-child(7) .syntax { color: #ff8888; background: rgba(255, 85, 85, 0.12); }
+.db-section:nth-child(8) .syntax { color: #00f5ff; background: rgba(0, 245, 255, 0.12); }
+
+.desc {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+  line-height: 1.7;
+}
+
+/* DEMO BOX */
+.demo-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.demo-output {
+  background: #111120;
+  border: 1px solid #222235;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.demo-output p {
+  color: #ccc;
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+.demo-output strong {
+  color: #00f5ff;
+  font-size: 1rem;
+}
+
+.demo-code {
+  background: #080812;
+  border: 1px solid #1a1a35;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+.demo-code code {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: #ffcc44;
+  background: rgba(255, 204, 68, 0.08);
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 204, 68, 0.2);
+  display: block;
+}
+
+/* INPUTS & BUTTONS */
+.demo-input {
+  background: #0d0d1f;
+  border: 1px solid #2a2a45;
+  color: #eee;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 0.92rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+.demo-input:focus {
+  border-color: #00f5ff;
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.15);
+}
+
+.demo-btn {
+  background: rgba(0, 245, 255, 0.1);
+  border: 1px solid #00f5ff;
+  color: #00f5ff;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.demo-btn:hover {
+  background: #00f5ff;
+  color: #0a0a0f;
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.4);
+}
+
+.demo-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.demo-btn-toggle {
+  background: rgba(191, 0, 255, 0.1);
+  border: 1px solid #bf00ff;
+  color: #dd88ff;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.demo-btn-toggle:hover {
+  background: #bf00ff;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(191, 0, 255, 0.4);
+}
+
+.demo-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  border: 1px solid #2a2a45;
+}
+
+/* HOVER BOX */
+.hover-box {
+  padding: 18px;
+  border-radius: 10px;
+  border: 2px dashed #2a2a45;
+  text-align: center;
+  color: #888;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 1px;
+}
+
+.hover-box.hovered {
+  border-color: #00f5ff;
+  border-style: solid;
+  color: #00f5ff;
+  background: rgba(0, 245, 255, 0.06);
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.1);
+}
+
+/* PREVIEW CARD */
+.preview-card {
+  background: #0d0d1f;
+  border: 1px solid #2a2a45;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.preview-card p {
+  margin: 0 0 8px;
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.preview-card p:last-child { margin: 0; }
+
+.preview-card strong {
+  color: #dd88ff;
+  font-size: 0.95rem;
+}
+
+/* COUNTER */
+.counter-display {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 5rem;
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(90deg, #00ff88, #00f5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  text-shadow: none;
+}
+
+.counter-btns {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.signal-output {
+  color: #00ff88;
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 12px;
+  background: rgba(0, 255, 136, 0.07);
+  border: 1px solid rgba(0, 255, 136, 0.25);
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* STYLE BINDING */
+.style-box {
+  padding: 16px;
+  border-radius: 10px;
+  border: 2px solid #2a2a45;
+  text-align: center;
+  color: #888;
+  font-size: 0.92rem;
+  transition: all 0.3s;
+  letter-spacing: 1px;
+}
+
+.style-box.box-active {
+  border-color: #00ff88;
+  color: #00ff88;
+  background: rgba(0, 255, 136, 0.07);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.15);
+}
+
+.slider-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #aaa;
+  font-size: 0.88rem;
+}
+
+.slider-row input[type="range"] {
+  flex: 1;
+  accent-color: #00f5ff;
+  height: 4px;
+}
+
+.slider-row input[type="color"] {
+  width: 44px;
+  height: 36px;
+  border: 2px solid #2a2a45;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.styled-text {
+  text-align: center;
+  font-weight: 700;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 3px;
+  transition: all 0.2s;
+  margin: 0;
+  text-transform: uppercase;
+}

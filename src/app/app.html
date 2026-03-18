@@ -1,8 +1,11 @@
 <nav class="navbar">
-    <span class="nav-brand">🎮 GamingShop PH</span>
-    <div class="nav-links">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Product Services</a>
-    </div>
-  </nav>
-  
-  <router-outlet></router-outlet>
+  <span class="nav-brand">🎮 GamingShop PH</span>
+  <div class="nav-links">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    <a routerLink="/products" routerLinkActive="active">Products</a>
+    <a routerLink="/suppliers" routerLinkActive="active">Suppliers</a>
+    <a routerLink="/data-binding" routerLinkActive="active">Data Binding</a>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

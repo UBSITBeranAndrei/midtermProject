@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600&display=swap');
+
+.suppliers-container {
+  min-height: 100vh;
+  background: #0a0a0f;
+  padding: 40px 32px;
+  font-family: 'Exo 2', sans-serif;
+}
+
+.page-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 32px;
+  background: linear-gradient(90deg, #00f5ff, #bf00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.table-wrapper {
+  border: 1px solid #1a1a2e;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0, 245, 255, 0.05);
+}
+
+.suppliers-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #0d0d1a;
+}
+
+.suppliers-table thead {
+  background: linear-gradient(90deg, #0d0d1a, #1a0a2e);
+}
+
+.suppliers-table th {
+  padding: 16px 20px;
+  text-align: left;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #00f5ff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  border-bottom: 1px solid #1a1a2e;
+}
+
+.suppliers-table td {
+  padding: 14px 20px;
+  color: #ccc;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #111120;
+  transition: background 0.2s;
+}
+
+.suppliers-table tbody tr:hover td {
+  background: rgba(0, 245, 255, 0.03);
+  color: #fff;
+}
+
+.suppliers-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.btn-view {
+  background: transparent;
+  border: 1px solid #00f5ff;
+  color: #00f5ff;
+  padding: 6px 18px;
+  border-radius: 6px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-view:hover {
+  background: #00f5ff;
+  color: #0a0a0f;
+  box-shadow: 0 0 16px rgba(0, 245, 255, 0.4);
+}

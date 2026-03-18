@@ -38,7 +38,7 @@ export class ProductsComponent implements OnInit {
 
   searchProduct(): void {
     if (this.searchId !== null) {
-      const found = this.productService.getProductById(this.searchId);
+      const found = this.productService.getById(this.searchId);
       this.selectedSearchProduct = found ? { ...found } : null;
       this.updateMessage = found ? '' : 'Product not found.';
     }
@@ -46,7 +46,7 @@ export class ProductsComponent implements OnInit {
 
   saveUpdate(): void {
     if (this.selectedSearchProduct) {
-      this.productService.updateProduct(this.selectedSearchProduct);
+      this.productService.edit(this.selectedSearchProduct);
       this.updateMessage = 'Product updated successfully!';
     }
   }

@@ -48,7 +48,7 @@ export class ProductDetailsComponent {
 
   saveChanges(): void {
     if (this.editProduct) {
-      this.productService.updateProduct(this.editProduct);
+      this.productService.edit(this.editProduct);
       this.selectedProduct = { ...this.editProduct };
       this.isEditing = false;
       this.updateMessage = 'Product updated successfully!';

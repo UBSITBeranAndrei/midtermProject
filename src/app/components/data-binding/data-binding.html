@@ -1,0 +1,158 @@
+<div class="db-container">
+    <h2 class="page-title">Data Binding Examples</h2>
+    <p class="page-subtitle">All Angular data binding concepts demonstrated in one place.</p>
+  
+    <!-- 1. INTERPOLATION -->
+    <div class="db-section">
+      <div class="section-badge">01</div>
+      <h3>Interpolation <span class="syntax">{{ '{{' }} value {{ '}}' }}</span></h3>
+      <p class="desc">Displays component data directly in the template using double curly braces.</p>
+      <div class="demo-box">
+        <div class="demo-output">
+          <p>Student: <strong>{{ studentName }}</strong></p>
+          <p>Course: <strong>{{ course }}</strong></p>
+          <p>Year: <strong>{{ year }}</strong></p>
+          <p>Expression: <strong>{{ year + 1 }}</strong></p>
+          <p>Uppercase: <strong>{{ studentName.toUpperCase() }}</strong></p>
+        </div>
+        <div class="demo-code">
+          <code>{{ '{{' }} studentName {{ '}}' }}</code>
+          <code>{{ '{{' }} year + 1 {{ '}}' }}</code>
+          <code>{{ '{{' }} studentName.toUpperCase() {{ '}}' }}</code>
+        </div>
+      </div>
+    </div>
+  
+    <!-- 2. PROPERTY BINDING -->
+    <div class="db-section">
+      <div class="section-badge">02</div>
+      <h3>Property Binding <span class="syntax">[property]</span></h3>
+      <p class="desc">Binds component properties to HTML element attributes using square brackets.</p>
+      <div class="demo-box">
+        <div class="demo-output">
+          <button [disabled]="isDisabled" class="demo-btn">Disabled Button</button>
+          <button (click)="isDisabled = !isDisabled" class="demo-btn-toggle">
+            Toggle: isDisabled = {{ isDisabled }}
+          </button>
+          <img [src]="imageUrl" [alt]="altText" class="demo-img" />
+          <input [placeholder]="buttonLabel" class="demo-input" readonly />
+        </div>
+        <div class="demo-code">
+          <code>[disabled]="isDisabled"</code>
+          <code>[src]="imageUrl"</code>
+          <code>[placeholder]="buttonLabel"</code>
+        </div>
+      </div>
+    </div>
+  
+    <!-- 3. EVENT BINDING -->
+    <div class="db-section">
+      <div class="section-badge">03</div>
+      <h3>Event Binding <span class="syntax">(event)</span></h3>
+      <p class="desc">Listens to DOM events and triggers component methods using parentheses.</p>
+      <div class="demo-box">
+        <div class="demo-output">
+          <button class="demo-btn" (click)="onButtonClick()">
+            Click Count: {{ clickCount }}
+          </button>
+          <input class="demo-input" placeholder="Type something..." (keyup)="onKeyPress($event)" />
+          <p>Last Key Pressed: <strong>{{ lastKey }}</strong></p>
+          <div
+            class="hover-box"
+            [class.hovered]="isHovered"
+            (mouseenter)="onMouseEnter()"
+            (mouseleave)="onMouseLeave()">
+            {{ isHovered ? '🔥 Hovering!' : '👆 Hover over me' }}
+          </div>
+        </div>
+        <div class="demo-code">
+          <code>(click)="onButtonClick()"</code>
+          <code>(keyup)="onKeyPress($event)"</code>
+          <code>(mouseenter)="onMouseEnter()"</code>
+        </div>
+      </div>
+    </div>
+  
+    <!-- 4. TWO-WAY DATA BINDING -->
+    <div class="db-section">
+      <div class="section-badge">04</div>
+      <h3>Two-way Binding <span class="syntax">[(ngModel)]</span></h3>
+      <p class="desc">Syncs data between the component and template in both directions simultaneously.</p>
+      <div class="demo-box">
+        <div class="demo-output">
+          <input class="demo-input" [(ngModel)]="twoWayName" placeholder="Enter your name" />
+          <input class="demo-input" [(ngModel)]="twoWayEmail" placeholder="Enter your email" />
+          <input class="demo-input" type="number" [(ngModel)]="twoWayAge" placeholder="Enter your age" />
+          <div class="preview-card">
+            <p>Name: <strong>{{ twoWayName || '—' }}</strong></p>
+            <p>Email: <strong>{{ twoWayEmail || '—' }}</strong></p>
+            <p>Age: <strong>{{ twoWayAge || '—' }}</strong></p>
+          </div>
+        </div>
+        <div class="demo-code">
+          <code>[(ngModel)]="twoWayName"</code>
+          <code>[(ngModel)]="twoWayEmail"</code>
+          <code>[(ngModel)]="twoWayAge"</code>
+        </div>
+      </div>
+    </div>
+  
+    <!-- 5. SIGNALS -->
+    <div class="db-section">
+      <div class="section-badge">05</div>
+      <h3>Angular Signals <span class="syntax">signal()</span></h3>
+      <p class="desc">Angular 21's reactive primitive for state management. Signals automatically track dependencies.</p>
+      <div class="demo-box">
+        <div class="demo-output">
+          <div class="counter-display">{{ counter() }}</div>
+          <div class="counter-btns">
+            <button class="demo-btn" (click)="decrement()">−</button>
+            <button class="demo-btn-toggle" (click)="resetCounter()">Reset</button>
+            <button class="demo-btn" (click)="increment()">+</button>
+          </div>
+          <input class="demo-input" (input)="updateMessage($event)" placeholder="Update signal message..." />
+          <p class="signal-output">{{ signalMessage() }}</p>
+        </div>
+        <div class="demo-code">
+          <code>counter = signal&lt;number&gt;(0)</code>
+          <code>counter.update(v =&gt; v + 1)</code>
+          <code>counter.set(0)</code>
+          <code>{{ '{{' }} counter() {{ '}}' }}</code>
+        </div>
+      </div>
+    </div>
+  
+    <!-- 6. CLASS & STYLE BINDING -->
+    <div class="db-section">
+      <div class="section-badge">06</div>
+      <h3>Class & Style Binding <span class="syntax">[class] [style]</span></h3>
+      <p class="desc">Dynamically applies CSS classes and inline styles based on component state.</p>
+      <div class="demo-box">
+        <div class="demo-output">
+          <button class="demo-btn-toggle" (click)="toggleActive()">
+            Toggle Active: {{ isActive }}
+          </button>
+          <div class="style-box" [class.box-active]="isActive">
+            {{ isActive ? '✅ Active Class Applied' : '❌ No Active Class' }}
+          </div>
+          <div class="slider-row">
+            <label>Font Size: {{ fontSize }}px</label>
+            <input type="range" min="10" max="36" [(ngModel)]="fontSize" />
+          </div>
+          <div class="slider-row">
+            <label>Color</label>
+            <input type="color" [(ngModel)]="selectedColor" />
+          </div>
+          <p [style.fontSize.px]="fontSize" [style.color]="selectedColor" class="styled-text">
+            This text is dynamically styled!
+          </p>
+        </div>
+        <div class="demo-code">
+          <code>[class.box-active]="isActive"</code>
+          <code>[style.fontSize.px]="fontSize"</code>
+          <code>[style.color]="selectedColor"</code>
+        </div>
+      </div>
+    </div>
+  
+  </div>
