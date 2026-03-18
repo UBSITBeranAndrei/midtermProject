@@ -7,5 +7,4 @@ export interface Supplier {
     phone: string;
     productsSupplied: string[];
     category: string;
-    status: string;
-  }
+    status: string;}
